@@ -5,11 +5,16 @@ import lombok.Data;
 
 /**
  * @author gluomo
- * @describe 堆节点
+ * @describe TopK堆节点
  */
 @Data
 @AllArgsConstructor
-public class Node {
-    private String s;
+public class TopKNode {
+
+    private String str;
+
+    /**
+     * 词频
+     */
     private int times;
 }
