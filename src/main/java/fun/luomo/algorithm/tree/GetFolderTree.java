@@ -1,4 +1,4 @@
-package fun.luomo.algorithm;
+package fun.luomo.algorithm.tree;
 
 import org.junit.Test;
 
