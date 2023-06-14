@@ -14,6 +14,7 @@ public class 最长递增子序列 {
     public void fun1() {
         int[] arr = {10, 9, 2, 5, 3, 7, 101, 18};
         System.out.println(Arrays.toString(list1(arr)));
+        System.out.println(Arrays.toString(list2(arr)));
 
     }
 
@@ -24,7 +25,8 @@ public class 最长递增子序列 {
         int[] dp = getdp1(arr);
         return generateLIS(arr, dp);
     }
-    public int[] getdp1(int[] arr){
+
+    public int[] getdp1(int[] arr) {
         int[] dp = new int[arr.length];
         for (int i = 0; i < dp.length; i++) {
             dp[i] = 1;
@@ -45,8 +47,32 @@ public class 最长递增子序列 {
         return generateLIS(arr, dp);
     }
 
-    public int[] getdp2(int[] arr){
-        return list2(arr);
+    public int[] getdp2(int[] arr) {
+        int[] dp = new int[arr.length];
+        int[] ends = new int[arr.length];
+        dp[0] = 1;
+        ends[0] = arr[0];
+        int right = 0;
+        int l = 0;
+        int r = 0;
+        int m = 0;
+
+        for (int i = 1; i < arr.length; i++) {
+            l = 0;
+            r = right;
+            while (l <= r) {
+                m = (l + r) / 2;
+                if (arr[i] > ends[m]) {
+                    l = m + 1;
+                } else {
+                    r = m - 1;
+                }
+            }
+            right = Math.max(right, l);
+            ends[l] = arr[i];
+            dp[i] = l + 1;
+        }
+        return dp;
     }
 
     public int[] generateLIS(int[] arr, int[] dp) {
