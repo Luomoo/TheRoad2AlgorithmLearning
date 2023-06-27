@@ -1,5 +1,7 @@
 package fun.luomo.util;
 
+import fun.luomo.datastructure.TreeNode;
+
 /**
  * @author gluomo
  * @date 2023/6/13 11:35
@@ -11,6 +13,13 @@ public class PrintUtil {
                 System.out.print(dp[i][j] + " ");
             }
             System.out.println(); // 换行
+        }
+    }
+    public static void printBT(TreeNode treeNode) {
+        if (treeNode != null) {
+            System.out.print(treeNode.getVal() + " ");
+            printBT(treeNode.getLeft());
+            printBT(treeNode.getRight());
         }
     }
 }
