@@ -7,8 +7,6 @@ package leetcode.editor.cn;
 public class SwapNodesInPairs {
     public static void main(String[] args) {
         Solution solution = new SwapNodesInPairs().new Solution();
-
-        solution.swapPairs();
     }
 
     public class ListNode {
